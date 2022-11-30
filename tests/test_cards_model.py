@@ -11,7 +11,6 @@ def test_compare_equal_cards():
 def test_card_is_hashable():
     card_one = card_generators.ClassicGenerator.generate_card()
     card_two = card_model.BingoCard(**card_one.dict())
-    assert set([card_one, card_two])
 
 
 def test_reasonable_unique_cards():

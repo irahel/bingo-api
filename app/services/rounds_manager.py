@@ -56,13 +56,11 @@ class RoundManager:
             )
         )
 
-        updated_round = cls.db_collection.find_one_and_replace(
+        return cls.db_collection.find_one_and_replace(
             {"pin": round_to_join.pin},
             jsonable_encoder(round_to_join),
             return_document=ReturnDocument.AFTER,
         )
-
-        return updated_round
 
     @classmethod
     def pick_number(cls, id):

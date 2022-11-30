@@ -25,9 +25,7 @@ class BingoCard(BaseModel):
         """Sets a unique hash string for the card"""
         flatten_values = []
         for col in self.card_values:
-            for value in col:
-                flatten_values.append(str(value))
-
+            flatten_values.extend(str(value) for value in col)
         flatten_values.sort()
 
         str_data = f"{self.card_type}{''.join(flatten_values)}"

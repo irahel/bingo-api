@@ -25,10 +25,7 @@ class ClassicGenerator(CardGenerator):
 
     @classmethod
     def generate_card(cls, **_) -> BingoCard:
-        new_card = BingoCard(
-            card_values=cls.gen_card_values(), card_type=cls.TYPE_ID
-        )
-        return new_card
+        return BingoCard(card_values=cls.gen_card_values(), card_type=cls.TYPE_ID)
 
     @classmethod
     def gen_card_values(cls) -> CardValues:
@@ -46,12 +43,10 @@ class NSquareGenerator(CardGenerator):
     @classmethod
     def generate_card(cls, **kwargs) -> BingoCard:
 
-        new_card = BingoCard(
+        return BingoCard(
             card_values=cls.gen_card_values(kwargs.get("n", 5)),
             card_type=cls.TYPE_ID,
         )
-
-        return new_card
 
     @classmethod
     def gen_card_values(cls, card_size: int) -> CardValues:
